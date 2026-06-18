@@ -84,12 +84,12 @@ p {
   margin-bottom: 15px;
 }
 
-.card__features-title {
+.card__compound-title {
   display: block;
   margin-bottom: 5px;
 }
 
-.card__features {
+.card__compound {
   display: flex;
   flex-direction: column;
   gap: 5px;
