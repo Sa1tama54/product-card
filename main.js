@@ -18,3 +18,17 @@ allCardsColorBtn.addEventListener("click", () => {
     card.style.backgroundColor = goldColorHash;
   });
 });
+
+// Открытие страницы Google
+const openGoogleBtn = document.querySelector("#open-google-btn");
+
+openGoogleBtn.addEventListener("click", openGoogle);
+
+function openGoogle() {
+  const answer = confirm("Вы действительно хотите открыть Google?");
+
+  if (answer) {
+    window.open("https://google.com");
+  }
+  return;
+}
