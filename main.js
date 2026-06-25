@@ -52,3 +52,10 @@ function outputLogMessage() {
     alert(answer);
   }
 }
+
+// Вывод главного заголовка в консоль
+const catalogTitle = document.querySelector(".products__title");
+
+catalogTitle.addEventListener("mouseover", () => {
+  console.log(catalogTitle.textContent);
+});
