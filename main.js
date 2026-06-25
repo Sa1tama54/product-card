@@ -32,3 +32,23 @@ function openGoogle() {
   }
   return;
 }
+
+// Вывод сообщения в консоль
+const logBtn = document.querySelector("#output-log-btn");
+
+logBtn.addEventListener("click", outputLogMessage);
+
+function outputLogMessage() {
+  const answer = prompt("Введите сообщение:", "Сообщение");
+
+  if (answer === null) {
+    return;
+  }
+
+  if (answer.trim().length === 0) {
+    alert("Попробуйте снова!");
+  } else {
+    console.log(answer);
+    alert(answer);
+  }
+}
