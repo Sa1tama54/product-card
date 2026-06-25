@@ -59,3 +59,10 @@ const catalogTitle = document.querySelector(".products__title");
 catalogTitle.addEventListener("mouseover", () => {
   console.log(catalogTitle.textContent);
 });
+
+// Переключение цвета кнопки
+const toggleColorBtn = document.querySelector("#toggle-сolor-btn");
+
+toggleColorBtn.addEventListener("click", () => {
+  toggleColorBtn.classList.toggle("active");
+});
