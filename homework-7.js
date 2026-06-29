@@ -18,3 +18,17 @@ const checkSpeed = (speed) => {
 };
 
 console.log(checkSpeed(299792458));
+
+let product = "Playstation 5";
+let productPrice = 600;
+
+const buyProduct = (budget) => {
+  if (budget >= productPrice) {
+    return `${product} приобретён. Спасибо за покупку!`;
+  }
+
+  let dif = productPrice - budget;
+  return `Вам не хватает ${dif}$, пополните баланс`;
+};
+
+console.log(buyProduct(450));
