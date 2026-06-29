@@ -19,16 +19,26 @@ const checkSpeed = (speed) => {
 
 console.log(checkSpeed(299792458));
 
-let product = "Playstation 5";
-let productPrice = 600;
+const product = "Playstation 5";
+const productPrice = 600;
 
 const buyProduct = (budget) => {
   if (budget >= productPrice) {
     return `${product} приобретён. Спасибо за покупку!`;
   }
 
-  let dif = productPrice - budget;
+  const dif = productPrice - budget;
   return `Вам не хватает ${dif}$, пополните баланс`;
 };
 
 console.log(buyProduct(450));
+
+const firstname = "John";
+const lastname = "Winchester";
+const age = 42;
+
+const createUser = (firstname, lastname, age) => {
+  return `Имя: ${firstname}\nФамилия: ${lastname}\nВозраст: ${age}`;
+};
+
+console.log(createUser(firstname, lastname, age));
