@@ -27,8 +27,8 @@ const buyProduct = (budget) => {
     return `${product} приобретён. Спасибо за покупку!`;
   }
 
-  const dif = productPrice - budget;
-  return `Вам не хватает ${dif}$, пополните баланс`;
+  const difference = productPrice - budget;
+  return `Вам не хватает ${difference}$, пополните баланс`;
 };
 
 console.log(buyProduct(450));
