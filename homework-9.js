@@ -59,3 +59,22 @@ const commentsWithValidity = comments.map((comment) => {
 });
 
 console.log(commentsWithValidity);
+
+// Задание 11. Массив почт через reduce и map
+const emailListWithReduce = comments.reduce((result, comment) => {
+  result.push(comment.email);
+
+  return result;
+}, []);
+
+const emailListWithMap = comments.map((comment) => comment.email);
+
+console.log(emailListWithReduce);
+console.log(emailListWithMap);
+
+// Задание 12. Привести массив почт к строке через toString() и join()
+const emailsString = emailListWithReduce.toString();
+const formattedEmails = emailListWithReduce.join(", ");
+
+console.log(emailsString);
+console.log(formattedEmails);
