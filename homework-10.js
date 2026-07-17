@@ -8,10 +8,12 @@ const productsList = document.querySelector(".products__list");
 const PROMPT_MESSAGE = "Сколько карточек отобразить? От 1 до 5";
 
 const getCardsCount = () => {
-  let count = prompt(PROMPT_MESSAGE);
+  let input = prompt(PROMPT_MESSAGE);
+  let count = +input;
 
-  while (count !== null && (+count < 1 || +count > 5 || isNaN(+count))) {
-    count = prompt(PROMPT_MESSAGE);
+  while (input !== null && (count < 1 || count > 5 || isNaN(count))) {
+    input = prompt(PROMPT_MESSAGE);
+    count = +input;
   }
   return count;
 };
@@ -20,19 +22,24 @@ const getCardsCount = () => {
 const renderProductCards = (products) => {
   products.forEach((product) => {
     const productClone = productCardTemplate.content.cloneNode(true);
-    productClone.querySelector(".card__picture").src = product.image;
+    const imageSrc = `/images/${product.image}.png`;
+    const compoundList = productClone.querySelector(".card__compound");
+    const price = `${product.price} \u20BD`;
+
+    productClone.querySelector(".card__picture").src = imageSrc;
     productClone.querySelector(".card__picture").alt = product.title;
     productClone.querySelector(".card__category").textContent =
       product.category;
     productClone.querySelector(".card__title").textContent = product.title;
     productClone.querySelector(".card__desc").textContent = product.description;
 
-    const compoundList = productClone.querySelectorAll(".card__compound > li");
-    compoundList.forEach((item, i) => {
-      item.textContent = product.compoundList[i];
+    product.compoundList.forEach((item) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = item;
+
+      compoundList.appendChild(listItem);
     });
 
-    const price = `${product.price} \u20BD`;
     productClone.querySelector(".card__price-value").textContent = price;
 
     productsList.appendChild(productClone);
