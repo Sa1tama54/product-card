@@ -136,3 +136,159 @@ p {
 .products__item {
   width: 340px;
 }
+
+.footer {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+.footer__container {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 85px 84px 28px;
+}
+
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+
+.footer__logo {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.footer__tagline {
+  font-size: 18px;
+  margin-bottom: 42px;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer__social-link {
+  display: flex;
+}
+
+.footer__social-icon--telegram {
+  width: 21px;
+  height: 18px;
+}
+
+.footer__social-icon--vk {
+  width: 24px;
+  height: 14px;
+}
+
+.footer__subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__subscribe-title {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.footer__subscribe-form {
+  display: flex;
+  align-items: center;
+  width: 477px;
+  height: 61px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0 25px;
+}
+
+.footer__subscribe-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer__subscribe-divider {
+  width: 1px;
+  height: 18px;
+  background-color: #000;
+  margin: 0 15px;
+}
+
+.footer__subscribe-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  padding: 0;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.footer__subscribe-message {
+  margin-top: 10px;
+}
+
+.footer__subscribe-message--error {
+  color: red;
+}
+
+.footer__subscribe-message--success {
+  color: green;
+}
+
+.footer__links-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 23px;
+}
+
+.footer__links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.footer__links-link {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer__bottom {
+  margin-top: 160px;
+  text-align: center;
+}
+
+.footer__bottom::before {
+  content: "";
+  display: block;
+  width: 66px;
+  height: 1px;
+  background-color: #fff;
+  margin: 0 auto 33px;
+}
+
+.footer__copyright {
+  font-size: 18px;
+}
