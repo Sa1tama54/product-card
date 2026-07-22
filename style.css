@@ -31,6 +31,29 @@ p {
   margin: 0;
 }
 
+.register-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  height: 50px;
+  padding: 3px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: blueviolet;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: scale(1.1);
+}
+
 .products {
   padding: 220px 0 116px;
   max-width: 1110px;
@@ -291,4 +314,125 @@ p {
 
 .footer__copyright {
   font-size: 18px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.modal-showed {
+  display: flex;
+}
+
+.modal__window {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  color: #515076;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.modal__title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal__label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal__input {
+  height: 44px;
+  border: 1px solid #d7d6e4;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #515076;
+
+  &:focus {
+    outline: none;
+    border-color: blueviolet;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-color: red;
+  }
+}
+
+.modal__message {
+  text-align: center;
+}
+
+.modal__message--error {
+  color: red;
+}
+
+.modal__submit {
+  height: 50px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 50px;
+  background-color: blueviolet;
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 }

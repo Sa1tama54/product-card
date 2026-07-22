@@ -12,6 +12,8 @@
 </head>
 
 <body>
+  <button type="button" id="open-registration-modal-btn" class="register-btn">Регистрация</button>
+
   <section class="products">
     <h1 class="products__title">Выбери свой продукт</h1>
     <div class="products__buttons">
@@ -58,7 +60,7 @@
         <div class="footer__subscribe">
           <p class="footer__subscribe-title">Подпишись на наши акции:</p>
           <form class="footer__subscribe-form" novalidate>
-            <input type="email" name="email" class="footer__subscribe-input" placeholder="Введи Email..." />
+            <input type="email" name="email" class="footer__subscribe-input" placeholder="Введи Email..." required />
             <span class="footer__subscribe-divider"></span>
             <button type="submit" class="footer__subscribe-btn">Подписаться</button>
           </form>
@@ -81,12 +83,61 @@
     </div>
   </footer>
 
-  <!-- <script src="main.js"></script>
+  <div class="modal" id="registration-modal">
+    <div class="overlay"></div>
+    <div class="modal__window">
+      <button type="button" class="modal__close" id="close-registration-modal-btn">&times;</button>
+      <h2 class="modal__title">Регистрация</h2>
+      <form class="modal__form" id="registration-form" novalidate>
+        <div class="modal__field">
+          <label class="modal__label" for="register-first-name">Имя</label>
+          <input class="modal__input" type="text" id="register-first-name" name="firstName" placeholder="Введите имя"
+            autocomplete="given-name" minlength="2" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-last-name">Фамилия</label>
+          <input class="modal__input" type="text" id="register-last-name" name="lastName" placeholder="Введите фамилию"
+            autocomplete="family-name" minlength="2" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-birth-date">Дата рождения</label>
+          <input class="modal__input" type="date" id="register-birth-date" name="birthDate" autocomplete="bday"
+            required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-login">Логин</label>
+          <input class="modal__input" type="text" id="register-login" name="login" placeholder="Придумайте логин"
+            autocomplete="username" minlength="3" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-password">Пароль</label>
+          <input class="modal__input" type="password" id="register-password" name="password"
+            placeholder="Придумайте пароль" autocomplete="new-password" minlength="6" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-password-repeat">Повторите пароль</label>
+          <input class="modal__input" type="password" id="register-password-repeat" name="passwordRepeat"
+            placeholder="Повторите пароль" autocomplete="new-password" minlength="6" required />
+        </div>
+
+        <p class="modal__message" id="registration-form-message"></p>
+
+        <button type="submit" class="modal__submit">Зарегистрироваться</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
   <script src="homework-7.js"></script>
   <script src="homework-8.js"></script>
   <script type="module" src="homework-9.js"></script>
-  <script type="module" src="homework-10.js"></script> -->
-  <script type="module" src="homework-11.js"></script>
+  <script type="module" src="homework-10.js"></script>
+  <script src="homework-11.js"></script>
 </body>
 
 </html>
