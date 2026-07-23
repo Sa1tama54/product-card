@@ -1,3 +1,8 @@
+const generateFormData = (form) => {
+  const formData = new FormData(form);
+  return Object.fromEntries(formData.entries());
+};
+
 // Задание 1. Форма подписки
 const subscribeForm = document.querySelector(".footer__subscribe-form");
 const emailInput = document.querySelector(".footer__subscribe-input");
@@ -20,9 +25,8 @@ subscribeForm.addEventListener("submit", (event) => {
       true,
     );
   } else {
-    const form = event.target;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const data = generateFormData(event.target);
+
     console.log(data);
 
     showSubscribeMessage("Спасибо! Вы успешно подписались.", false);
@@ -69,8 +73,7 @@ registrationForm.addEventListener("submit", (event) => {
   if (isPasswordMismatch || !form.checkValidity()) {
     showErrorMessage();
   } else {
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const data = generateFormData(form);
 
     user = { ...data, createdOn: new Date() };
 
