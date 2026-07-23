@@ -71,12 +71,14 @@ registrationForm.addEventListener("submit", (event) => {
   } else {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
 
     user = { ...data, createdOn: new Date() };
 
+    console.log(user);
+
     registrationFormMessage.textContent = "";
     registrationFormMessage.classList.remove("modal__message--error");
+    form.reset();
     closeModal();
   }
 });
