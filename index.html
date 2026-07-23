@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <title>Каталог товаров</title>
 </head>
 
 <body>
+  <button type="button" id="open-registration-modal-btn" class="register-btn">Регистрация</button>
+
   <section class="products">
     <h1 class="products__title">Выбери свой продукт</h1>
     <div class="products__buttons">
@@ -37,11 +39,104 @@
       </li>
     </template>
   </section>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <h2 class="footer__logo">Product Cards</h2>
+          <p class="footer__tagline">У нас самые лучшие продукты для кожи!</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-link">
+              <img src="images/telegram-icon.svg" alt="Telegram"
+                class="footer__social-icon footer__social-icon--telegram" />
+            </a>
+            <a href="#" class="footer__social-link">
+              <img src="images/vk-icon.svg" alt="VK" class="footer__social-icon footer__social-icon--vk" />
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__subscribe">
+          <p class="footer__subscribe-title">Подпишись на наши акции:</p>
+          <form class="footer__subscribe-form" novalidate>
+            <input type="email" name="email" class="footer__subscribe-input" placeholder="Введи Email..." required />
+            <span class="footer__subscribe-divider"></span>
+            <button type="submit" class="footer__subscribe-btn">Подписаться</button>
+          </form>
+          <p class="footer__subscribe-message"></p>
+        </div>
+
+        <nav class="footer__links">
+          <h3 class="footer__links-title">Быстрые ссылки</h3>
+          <ul class="footer__links-list">
+            <li><a href="#" class="footer__links-link">Главная</a></li>
+            <li><a href="#" class="footer__links-link">Магазин</a></li>
+            <li><a href="#" class="footer__links-link">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">www.product-cards.com©all right reserve</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="registration-modal">
+    <div class="overlay"></div>
+    <div class="modal__window">
+      <button type="button" class="modal__close" id="close-registration-modal-btn">&times;</button>
+      <h2 class="modal__title">Регистрация</h2>
+      <form class="modal__form" id="registration-form" novalidate>
+        <div class="modal__field">
+          <label class="modal__label" for="register-first-name">Имя</label>
+          <input class="modal__input" type="text" id="register-first-name" name="firstName" placeholder="Введите имя"
+            autocomplete="given-name" minlength="2" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-last-name">Фамилия</label>
+          <input class="modal__input" type="text" id="register-last-name" name="lastName" placeholder="Введите фамилию"
+            autocomplete="family-name" minlength="2" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-birth-date">Дата рождения</label>
+          <input class="modal__input" type="date" id="register-birth-date" name="birthDate" autocomplete="bday" />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-login">Логин</label>
+          <input class="modal__input" type="text" id="register-login" name="login" placeholder="Придумайте логин"
+            autocomplete="username" minlength="3" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-password">Пароль</label>
+          <input class="modal__input" type="password" id="register-password" name="password"
+            placeholder="Придумайте пароль" autocomplete="new-password" minlength="6" required />
+        </div>
+
+        <div class="modal__field">
+          <label class="modal__label" for="register-password-repeat">Повторите пароль</label>
+          <input class="modal__input" type="password" id="register-password-repeat" name="passwordRepeat"
+            placeholder="Повторите пароль" autocomplete="new-password" minlength="6" required />
+        </div>
+
+        <p class="modal__message" id="registration-form-message"></p>
+
+        <button type="submit" class="modal__submit">Зарегистрироваться</button>
+      </form>
+    </div>
+  </div>
+
   <script src="main.js"></script>
   <script src="homework-7.js"></script>
   <script src="homework-8.js"></script>
   <script type="module" src="homework-9.js"></script>
   <script type="module" src="homework-10.js"></script>
+  <script src="homework-11.js"></script>
 </body>
 
 </html>
