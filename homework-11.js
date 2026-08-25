@@ -1,13 +1,9 @@
+import { Form } from "./Form.js";
 import { Modal } from "./Modal.js";
-
-const generateFormData = (form) => {
-  const formData = new FormData(form);
-  return Object.fromEntries(formData.entries());
-};
+import { showErrorMessage } from "./utils.js";
 
 // Задание 1. Форма подписки
-const subscribeForm = document.querySelector(".footer__subscribe-form");
-const emailInput = document.querySelector(".footer__subscribe-input");
+const subscribeForm = new Form("#subscribe-form");
 const subscribeMessage = document.querySelector(".footer__subscribe-message");
 
 const showSubscribeMessage = (text, isError) => {
@@ -18,28 +14,28 @@ const showSubscribeMessage = (text, isError) => {
   subscribeMessage.classList.toggle(successMessageClass, !isError);
 };
 
-subscribeForm.addEventListener("submit", (event) => {
+subscribeForm.formElement.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (!emailInput.checkValidity()) {
+  if (!subscribeForm.isValid()) {
     showSubscribeMessage(
       "Пожалуйста, введите действительный адрес электронной почты.",
       true,
     );
   } else {
-    const data = generateFormData(event.target);
+    const data = subscribeForm.getValues();
 
     console.log(data);
 
     showSubscribeMessage("Спасибо! Вы успешно подписались.", false);
-    emailInput.value = "";
+    subscribeForm.resetValues();
   }
 });
 
 // Задание 2. Модальное окно с регистрацией
 const registrationModal = new Modal("#registration-modal");
+const registrationForm = new Form("#registration-form");
 const openModalBtn = document.querySelector("#open-registration-modal-btn");
-const registrationForm = document.querySelector("#registration-form");
 const passwordInput = document.querySelector("#register-password");
 const passwordRepeatInput = document.querySelector("#register-password-repeat");
 const registrationFormMessage = document.querySelector(
@@ -50,25 +46,19 @@ openModalBtn.addEventListener("click", () => {
   registrationModal.openModal();
 });
 
-const showErrorMessage = () => {
-  const errorText = "Не удалось завершить регистрацию. Ошибка заполнения!";
-
-  registrationFormMessage.textContent = errorText;
-  registrationFormMessage.classList.add("modal__message--error");
-};
-
 let user = null;
 
-registrationForm.addEventListener("submit", (event) => {
+registrationForm.formElement.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const form = event.target;
   const isPasswordMismatch = passwordInput.value !== passwordRepeatInput.value;
 
-  if (isPasswordMismatch || !form.checkValidity()) {
-    showErrorMessage();
+  if (isPasswordMismatch || !registrationForm.isValid()) {
+    showErrorMessage(
+      registrationFormMessage,
+      "Не удалось завершить регистрацию. Ошибка заполнения!",
+    );
   } else {
-    const data = generateFormData(form);
+    const data = registrationForm.getValues();
 
     user = { ...data, createdOn: new Date() };
 
@@ -76,7 +66,7 @@ registrationForm.addEventListener("submit", (event) => {
 
     registrationFormMessage.textContent = "";
     registrationFormMessage.classList.remove("modal__message--error");
-    form.reset();
+    registrationForm.resetValues();
     registrationModal.closeModal();
   }
 });
