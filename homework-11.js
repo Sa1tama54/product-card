@@ -1,3 +1,5 @@
+import { Modal } from "./Modal.js";
+
 const generateFormData = (form) => {
   const formData = new FormData(form);
   return Object.fromEntries(formData.entries());
@@ -35,9 +37,8 @@ subscribeForm.addEventListener("submit", (event) => {
 });
 
 // Задание 2. Модальное окно с регистрацией
-const modal = document.querySelector("#registration-modal");
+const registrationModal = new Modal("#registration-modal");
 const openModalBtn = document.querySelector("#open-registration-modal-btn");
-const closeModalBtn = document.querySelector("#close-registration-modal-btn");
 const registrationForm = document.querySelector("#registration-form");
 const passwordInput = document.querySelector("#register-password");
 const passwordRepeatInput = document.querySelector("#register-password-repeat");
@@ -46,14 +47,8 @@ const registrationFormMessage = document.querySelector(
 );
 
 openModalBtn.addEventListener("click", () => {
-  modal.classList.add("modal-showed");
+  registrationModal.openModal();
 });
-
-const closeModal = () => {
-  modal.classList.remove("modal-showed");
-};
-
-closeModalBtn.addEventListener("click", closeModal);
 
 const showErrorMessage = () => {
   const errorText = "Не удалось завершить регистрацию. Ошибка заполнения!";
@@ -82,6 +77,6 @@ registrationForm.addEventListener("submit", (event) => {
     registrationFormMessage.textContent = "";
     registrationFormMessage.classList.remove("modal__message--error");
     form.reset();
-    closeModal();
+    registrationModal.closeModal();
   }
 });
