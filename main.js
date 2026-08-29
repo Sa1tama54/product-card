@@ -1,68 +1,48 @@
-// Покраска первой карточки
-const productCard = document.querySelector(".card");
-const cardColorBtn = document.querySelector("#change-card-color-btn");
-const moccasinColorHash = "#FFE4B5";
+import "./homework-7.js";
+import "./homework-8.js";
+import "./homework-9.js";
+import "./homework-10.js";
+import "./homework-11.js";
 
-cardColorBtn.addEventListener("click", () => {
-  productCard.style.backgroundColor = moccasinColorHash;
-});
+import "./homework-6.js";
 
-// Покраска всех карточек
-const productCardList = document.querySelectorAll(".card");
-const allCardsBtnClass = "#change-all-cards-color-btn";
-const allCardsColorBtn = document.querySelector(allCardsBtnClass);
-const goldColorHash = "#D4AF37";
-
-allCardsColorBtn.addEventListener("click", () => {
-  productCardList.forEach((card) => {
-    card.style.backgroundColor = goldColorHash;
-  });
-});
-
-// Открытие страницы Google
-const openGoogleBtn = document.querySelector("#open-google-btn");
-
-openGoogleBtn.addEventListener("click", openGoogle);
-
-function openGoogle() {
-  const answer = confirm("Вы действительно хотите открыть Google?");
-
-  if (answer) {
-    window.open("https://google.com");
-  }
-  return;
-}
-
-// Вывод сообщения в консоль
-const logBtn = document.querySelector("#output-log-btn");
-
-logBtn.addEventListener("click", outputLogMessage);
-
-function outputLogMessage() {
-  const answer = prompt("Введите сообщение:", "Сообщение");
-
-  if (answer === null) {
-    return;
+class Device {
+  constructor(brand, model) {
+    this.brand = brand;
+    this.model = model;
   }
 
-  if (answer.trim().length === 0) {
-    alert("Попробуйте снова!");
-  } else {
-    console.log(answer);
-    alert(answer);
+  buyDevice() {
+    console.log(`${this.brand} ${this.model} is purchased`);
   }
 }
 
-// Вывод главного заголовка в консоль
-const catalogTitle = document.querySelector(".products__title");
+class Notebook extends Device {
+  constructor(brand, model, gpu) {
+    super(brand, model);
+    this.gpu = gpu;
+  }
 
-catalogTitle.addEventListener("mouseover", () => {
-  console.log(catalogTitle.textContent);
-});
+  showSpecs() {
+    console.log(`Видеокарта: ${this.gpu}`);
+  }
+}
 
-// Переключение цвета кнопки
-const toggleColorBtn = document.querySelector("#toggle-сolor-btn");
+class Phone extends Device {
+  constructor(brand, model, cameraCount) {
+    super(brand, model);
+    this.cameraCount = cameraCount;
+  }
 
-toggleColorBtn.addEventListener("click", () => {
-  toggleColorBtn.classList.toggle("active");
-});
+  showSpecs() {
+    console.log(`Количество камер: ${this.cameraCount}`);
+  }
+}
+
+const notebook = new Notebook("Asus", "ROG Strix G16", "RTX 4070");
+const phone = new Phone("Apple", "iPhone 17 Pro Max", 3);
+
+notebook.buyDevice();
+notebook.showSpecs();
+phone.buyDevice();
+phone.showSpecs();
