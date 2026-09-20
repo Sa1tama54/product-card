@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #e0e7ff, #fce7f3);
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+main {
+  padding-top: 220px;
+}
+
+.users__buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  padding-bottom: 50px;
+}
+
+button {
+  height: 50px;
+  background-color: #f7f7fa;
+  border: none;
+  border-radius: 50px;
+  padding: 3px 10px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.users {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.user-card {
+  max-width: 320px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+
+  button {
+    height: 40px;
+    width: 100px;
+    background-color: #cd2e2e;
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.user-card__name {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.user-card__age {
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+.user-card__email {
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.user-card__email:hover {
+  color: #2563eb;
+}
+
+.message {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.message--load {
+  color: #000;
+  animation: fade 1.5s ease-in-out infinite;
+}
+
+.message--error {
+  color: #dc2626;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
